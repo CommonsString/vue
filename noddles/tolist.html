@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>代办事项</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>{{ arr[0] }}</li>
+				<li>{{ arr[1] }}</li>
+			</ul>
+			<h1>{{ arr }}</h1>
+			<button v-on:click="add('shopping')">添加</button>
+			<button v-on:click="deletes(0)">删除</button>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	//控制器
+	var vm = new Vue({
+		el : '#box', 
+		data : {
+			arr : ['吃饭', '睡觉', '爱豆', '大游戏']
+		}, 
+		//定义事件
+		methods : {
+			//定义格式
+			add : function(str){
+				//在方法中调用数据,this代表vue实例,代理了data里面的所有属性
+				this.arr.push(str);
+			}, 
+			deletes : function(index){
+				this.arr.splice(index, 1);
+			}
+			
+		}
+	});
+</script>
