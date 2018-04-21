@@ -10,6 +10,7 @@
 			<ul>
 				<li>{{ arr[0] }}</li>
 				<li>{{ arr[1] }}</li>
+				<li>{{ obj.name }}</li>
 			</ul>
 			<h1>{{ arr }}</h1>
 			<button v-on:click="add('shopping')">添加</button>
@@ -23,7 +24,12 @@
 	var vm = new Vue({
 		el : '#box', 
 		data : {
-			arr : ['吃饭', '睡觉', '爱豆', '大游戏']
+			arr : ['吃饭', '睡觉', '爱豆', '大游戏'], 
+			obj : {
+				name : '闵超', 
+				age : 23, 
+				sex : '男'
+			}
 		}, 
 		//定义事件
 		methods : {
@@ -35,7 +41,7 @@
 			deletes : function(index){
 				this.arr.splice(index, 1);
 			}
-			
+						
 		}
 	});
 </script>

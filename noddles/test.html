@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>练习</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<h1 @click="fn">{{ msg }}</h1>
+			<input type="text" v-show="bol"/>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	//控制器
+	var vm = new Vue({
+		el : '#box', 
+		data : {
+			msg : "Edit me", 
+			bol : true
+		}, 
+		methods : {
+			fn : function (){
+				this.bol = !this.bol;				
+			}
+		}
+	});
+	
+	
+</script>

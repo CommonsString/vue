@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-model</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<h1 @click="fn">{{ msg }}</h1>
+			<input type="text" v-show="bol" v-model="msg"/>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	
+	var vm = new Vue({
+		el : "#box", 
+		data : {
+			msg : "", 
+			bol : true
+		},
+		methods : {
+			fn : function (){
+				this.bol = !this.bol;
+				this.msg = "";
+			}
+		}
+	});
+	
+	
+	
+</script>

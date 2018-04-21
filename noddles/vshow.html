@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-show</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<style>
+			.div1{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>v-show</h1>
+		<div id="box">
+			<h1>{{ bol }}</h1>
+			<button @click="change()">点击</button>
+			<div class="div1" v-show="bol"></div>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript">
+	
+	var vm = new Vue({
+		el : '#box', 
+		data :{
+			bol : false
+		}, 
+		methods : {
+			change : function (){
+				this.bol = !this.bol;
+			}
+		}
+	});
+	
+
+
+
+</script>
+
