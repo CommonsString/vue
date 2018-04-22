@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>todoList完整版</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<style>
+			#box{
+				width: 350px;
+				margin: 30px auto;
+				background: #eee;
+				padding: 30px 60px;
+			}
+			li{
+				list-style-type: none;
+			}
+			ul{
+				padding-left: 0px;
+			}
+			.add{
+				width: 200px;
+				height: 20px;
+				margin-right: 10px;
+			}
+			.span1{
+				color: skyblue;
+			}
+			.finish{
+				color: #ccc;
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<h1>任务列表</h1>		
+			<p>任务总数: {{ arr.length }}, 还有 {{ choose() }}条未完成： 【<span class="span1" @click="remove()">完成</span>】</p>
+			<ul>
+				<li v-for="item in arr" v-bind:class="{finish : item.bol}">
+					<input type="checkbox" v-model="item.bol"></input>
+					<span v-text="item.name"></span>
+				</li>
+			</ul>
+			<input type="text" class="add" v-model="msg" />
+			<button @click="fn()">添加</button>						
+		</div>	
+	</body>
+</html>
+<script type="text/javascript">
+		
+	var vm = new Vue({
+		el : "#box",
+		data : {
+			arr : [
+				{
+					name : "设计",
+					bol : false
+				}, 
+				{
+					name : "编写页面代码",
+					bol : false
+				}
+			], 
+			msg : ""
+		}, 
+		methods : {
+			fn : function(){
+				//添加数据
+				if(this.msg != ''){
+					var obj = {
+						name : this.msg,
+						bol : false
+					};
+					this.arr.push(obj);
+				}
+			}, 
+			choose : function (){
+				var count = 0;
+				for(var i = 0, len = this.arr.length; i < len; i++){
+					if(!this.arr[i].bol){
+						count++;
+					}
+				}
+				return count;
+			}
+		}
+		
+	});
+		
+		
+		
+			
+			
+			
+</script>
