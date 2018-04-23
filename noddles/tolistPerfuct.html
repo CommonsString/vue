@@ -82,6 +82,15 @@
 					}
 				}
 				return count;
+			}, 
+			remove : function(){
+				var temp = this.arr;
+				this.arr = [];
+				for(var i = 0; i < temp.length; i++){
+					if(!temp[i].bol){
+						this.arr.push(temp[i]);
+					}
+				}
 			}
 		}
 		
